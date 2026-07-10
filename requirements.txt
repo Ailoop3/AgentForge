@@ -1,0 +1,38 @@
+# AgentForge Dependencies
+
+# ===== 核心依赖 =====
+# 注意: 核心框架使用标准库+少量依赖即可运行演示
+# 以下依赖按需安装
+
+# LLM API (二选一)
+openai>=1.30.0              # OpenAI官方SDK，或兼容API
+# anthropic>=0.30.0         # Claude API
+
+# 向量数据库 (生产环境推荐)
+# chromadb>=0.5.0           # 本地向量库
+# qdrant-client>=1.9.0      # Qdrant向量数据库
+
+# 嵌入模型
+# sentence-transformers>=2.7.0  # 本地嵌入模型
+
+# Dashboard
+streamlit>=1.35.0           # 可视化面板
+pandas>=2.0.0               # 数据处理
+
+# 文档解析
+# pypdf2>=3.0.0             # PDF解析
+# beautifulsoup4>=4.12.0    # HTML解析
+# markdown>=3.6             # Markdown处理
+
+# 工具
+# tiktoken>=0.7.0           # Token计数
+
+# 可选: 完整Agent框架
+# langchain>=0.2.0          # LangChain框架
+# langgraph>=0.1.0          # LangGraph DAG编排
+# llamaindex>=0.10.0        # LlamaIndex RAG框架
+
+# ===== 开发依赖 =====
+# pytest>=8.0.0             # 测试
+# black>=24.0.0             # 代码格式化
+# ruff>=0.5.0               # Linter
