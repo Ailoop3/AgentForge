@@ -150,11 +150,20 @@ class TextChunker:
 
         # 合并小片段
         result = []
+        # 当前处理的内容
         current = ""
         for part in parts:
+            # 两种情况
+            """
+            情况一： 分隔的part部分+current+分隔符小于chunk_size，因此可以继续尝试添加内容
+            情况二： 加入的part部分超过chunk_size，因此先把current部分放入result
+                    再判断part部分是否超过chunk_size，如果超过要继续分割
+                    不超过让current被赋值为part继续添加内容
+            """
             if len(current) + len(part) + len(sep) <= self.chunk_size:
                 current += (sep + part) if current else part
             else:
+                # "" [] 0 None False {}均为False
                 if current:
                     result.append(current)
                 # 如果单个part超过限制，用更细的分隔符继续切

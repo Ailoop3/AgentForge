@@ -14,6 +14,8 @@ from .config import settings
 from .__main__ import AgentForge, quick_demo
 
 __version__ = "0.1.0"
+# 不加的话，会自动导出所有非以_开头的名字
+# 加的话只导出指定部分
 __all__ = [
     "AgentForge",
     "Orchestrator",

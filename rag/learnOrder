@@ -1,0 +1,25 @@
+RAG Engine 代码位置
+所有 RAG 相关代码在 rag/ 目录下：
+rag/
+├── models.py                  # 数据模型(Document/Chunk/RAGContext)
+├── knowledge_base.py          # 统一知识库接口
+├── ingestion/
+│   └── loaders.py             # 文档加载 + 分块
+└── retrieval/
+    ├── vector_store.py        # 向量存储 + BM25 + 混合检索
+    └── reranker.py            # 重排器
+学习顺序
+按数据流动方向逐步阅读，对应 RAG 的处理流程：
+顺序	文件	学什么	核心概念
+1	models.py	数据结构	Document、Chunk、RAGContext
+2	ingestion/loaders.py	文档摄入	加载文档 → 分块(chunking)
+3	retrieval/vector_store.py	检索核心	向量化、BM25、混合检索、RRF融合
+4	retrieval/reranker.py	精排	重排漏斗机制
+5	knowledge_base.py	统一接口	封装以上组件的对外 API
+让我帮你看看第一个文件，快速验证内容：
+→Read rag/models.py
+文件结构和注释都很清晰。建议的学习路径：
+1. 先读 models.py — 理解 Document → Chunk → RetrievalResult → RAGContext 的数据流转链
+2. 再读 ingestion/loaders.py — 看文档如何加载并切分成 Chunk
+3. 重点读 retrieval/vector_store.py — 核心难点：向量化、BM25、RRF 融合
+4. 最后读 reranker.py + knowledge_base.py — 精排和整体封装

@@ -31,7 +31,7 @@ class Document:
     """
     content: str
     source: SourceType
-    metadata: dict = field(default_factory=dict)
+    metadata: dict = field(default_factory=dict)  # 必须满足无参调用规则，可变成员必须用这个，不然共享一个内存
     doc_id: str = ""
 
 
